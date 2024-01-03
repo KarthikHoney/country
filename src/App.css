@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.unOrderList {
+  background-color: #161624;
+  background-size: cover;
+}
+.head {
+  color: wheat;
+}
+.countryContainer {
+  overflow-y: scroll;
+  max-height: 400px;
+  margin: 5%;
+}
+.mainCountryContainer {
+  display: flex;
+  flex-direction: column;
+}
