@@ -10,19 +10,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.unOrderList {
-  background-color: #161624;
-  background-size: cover;
-}
-.head {
-  color: wheat;
-}
-.countryContainer {
-  overflow-y: scroll;
-  max-height: 400px;
-  margin: 5%;
-}
-.mainCountryContainer {
+
+.mainContainer {
   display: flex;
   flex-direction: column;
 }

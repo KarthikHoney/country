@@ -1,0 +1,16 @@
+.blueButton {
+  color: black;
+  background-color: skyblue;
+  border-radius: 7px;
+  height: 30px;
+  width: 60px;
+  font-family: 'roboto';
+  font-size: 15px;
+  cursor: pointer;
+}
+.ListOfCountriesContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}

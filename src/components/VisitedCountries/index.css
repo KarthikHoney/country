@@ -1,0 +1,26 @@
+.VisitedCountriesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+}
+.thumbnailPic {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+.name_and_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.removeButton {
+  color: white;
+  background-color: black;
+  height: 30px;
+  width: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'roboto';
+  font-size: 15px;
+}

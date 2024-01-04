@@ -1,5 +1,6 @@
-import Home from './components/Home'
-
+import {Component} from 'react'
+import ListOfCountries from './components/ListOfCountries'
+import VisitedCountries from './components/VisitedCountries'
 import './App.css'
 
 // This is the list (static data) used in the application. You can move it to any component if needed.
@@ -77,7 +78,86 @@ const initialCountriesList = [
   },
 ]
 
-// Replace your code here
-const App = () => <Home list={initialCountriesList} />
+class App extends Component {
+  state = {listOfCountry: initialCountriesList}
+
+  onClickVisitButton = id => {
+    this.setState(prev => ({
+      listOfCountry: prev.listOfCountry.map(visit => {
+        if (visit.id === id) {
+          return {...visit, isVisited: !visit.isVisited}
+        }
+        return visit
+      }),
+    }))
+  }
+
+  onClickRemoveButton = id => {
+    this.setState(prev => ({
+      listOfCountry: prev.listOfCountry.map(visitedCountry => {
+        if (visitedCountry.id === id) {
+          return {...visitedCountry, isVisited: !visitedCountry.isVisited}
+        }
+        return visitedCountry
+      }),
+    }))
+  }
+
+  render() {
+    const {listOfCountry} = this.state
+    const updatedList = listOfCountry.filter(
+      country => country.isVisited === true,
+    )
+
+    return (
+      <div className="mainContainer">
+        <div>
+          <h1>Countries</h1>
+          <ul>
+            {listOfCountry.map(eachCountries => (
+              <ListOfCountries
+                key={eachCountries.id}
+                ListOfCountriesDetails={eachCountries}
+                onClickVisitButton={this.onClickVisitButton}
+                isVisited={eachCountries.isVisited}
+              />
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h1>Visited Countries</h1>
+          {updatedList.length !== 0 ? (
+            <ul>
+              {updatedList.map(eachVisit =>
+                eachVisit.isVisited ? (
+                  <VisitedCountries
+                    key={eachVisit.id}
+                    VisitedCountriesDetails={eachVisit}
+                    onClickRemoveButton={this.onClickRemoveButton}
+                    isVisited={eachVisit.isVisited}
+                  />
+                ) : (
+                  ''
+                ),
+              )}
+            </ul>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <p style={{color: 'black', fontSize: 25, fontFamily: 'serif'}}>
+                No Countries Visited Yet
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+}
 
 export default App
